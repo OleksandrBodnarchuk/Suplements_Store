@@ -31,9 +31,9 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-                <mapping class="model.Protein"/>
-        <mapping class="model.Creatin"/>
-        <mapping class="model.BCAA"/>
+<!--                <mapping class="model.Protein"/>-->
+<!--        <mapping class="model.Creatin"/>-->
+<!--        <mapping class="model.BCAA"/>-->
         <mapping class="model.Products"/>
 
     </session-factory>
