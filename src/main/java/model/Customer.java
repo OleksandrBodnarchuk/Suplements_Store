@@ -1,25 +1,21 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "CUSTOMERS")
 public class Customer {
+
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
     private String fullName;
-
     @Column
     private String phone;
-
     @Column(nullable = false)
     private String email;
-
     @Column
     private String address;
 

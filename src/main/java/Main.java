@@ -1,5 +1,4 @@
-import model.ENUM_TYPE_OF_PRODUCT;
-import model.Products;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
