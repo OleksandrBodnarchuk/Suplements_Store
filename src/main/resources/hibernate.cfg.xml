@@ -34,6 +34,7 @@
                 <mapping class="model.Protein"/>
         <mapping class="model.Creatin"/>
         <mapping class="model.BCAA"/>
+        <mapping class="model.Products"/>
 
     </session-factory>
 
