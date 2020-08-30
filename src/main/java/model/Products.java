@@ -6,6 +6,11 @@ import java.util.Set;
 @Entity(name = "PRODUCTS")
 
 public class Products {
+
+//private ENUM_TYPE_OF_PRODUCT type; // protein, bcaa
+    private String name;
+
+
     private Set<Products> products;
 
     public Set<Products> getProducts() {
