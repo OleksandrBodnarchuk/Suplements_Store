@@ -32,13 +32,13 @@ public class Main {
             product2.setType(ENUM_TYPE_OF_PRODUCT.CREATIN);
             session.save(product2);
 
-            Products bcaa1 = new Products();
-            bcaa1.setProductName("Real Pharm Amino Rest");
-            bcaa1.setPrice(82.41);
-            bcaa1.setWeight(500);
-            bcaa1.setAvailableItemsInStore(10);
-            bcaa1.setType(ENUM_TYPE_OF_PRODUCT.BCAA);
-            session.save(bcaa1);
+            Products product3 = new Products();
+            product3.setProductName("Real Pharm Amino Rest");
+            product3.setPrice(82.41);
+            product3.setWeight(500);
+            product3.setAvailableItemsInStore(10);
+            product3.setType(ENUM_TYPE_OF_PRODUCT.BCAA);
+            session.save(product3);
 
 
             transaction.commit();
