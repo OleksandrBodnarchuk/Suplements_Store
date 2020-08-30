@@ -14,7 +14,7 @@
         <!-- Твой логин к базе -->
         <property name="connection.username">root</property>
         <!-- Твой пароль к базе-->
-        <property name="connection.password">password</property>
+        <property name="connection.password">1W6XDfQ2!a</property>
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">100</property>
         <property name="hibernate.connection.characterEncoding">UTF-8</property>
@@ -31,7 +31,9 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-        <!--        <mapping class="Movie"/>-->
+                <mapping class="model.Protein"/>
+        <mapping class="model.Creatin"/>
+        <mapping class="model.BCAA"/>
 
     </session-factory>
 
