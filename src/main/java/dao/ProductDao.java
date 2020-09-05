@@ -43,7 +43,7 @@ public class ProductDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);
     }
 
-    public List findAll() { //working
+    public List findAll() {
         EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
         Query query = em.createQuery("from STORE_PRODUCTS");
         return query.getResultList();

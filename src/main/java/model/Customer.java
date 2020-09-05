@@ -74,26 +74,14 @@ public class Customer extends CustomerDao {
         this.address = address;
     }
 
-    public void addCustomer() throws IOException {
-        StandardServiceRegistry standardServiceRegistry =
-                new StandardServiceRegistryBuilder().configure().build();
-
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Full name");
-            String name = reader.readLine();
-            System.out.println("Email");
-            String email = reader.readLine();
-            System.out.println("Address");
-            String address = reader.readLine();
-            CustomerDao customerDao = new CustomerDao();
-            Customer customer = new Customer(name, email, address);
-            customerDao.save(customer);
-            System.out.println("Customer added to database");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

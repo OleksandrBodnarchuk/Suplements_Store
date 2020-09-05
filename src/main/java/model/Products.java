@@ -1,14 +1,6 @@
 package model;
 
-import dao.CustomerDao;
-import dao.ProductDao;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
 import javax.persistence.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 @Entity(name = "STORE_PRODUCTS")
 
@@ -77,6 +69,18 @@ public class Products {
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return "Products{" +
+                "iD=" + iD +
+                ", ProductName='" + ProductName + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                ", availableItemsInStore=" + availableItemsInStore +
+                ", type=" + type +
+                '}';
+    }
+
     public Products() {
     }
 
@@ -86,32 +90,5 @@ public class Products {
         this.price = price;
         this.availableItemsInStore = availableItemsInStore;
         this.type = type;
-    }
-
-    public void addProduct() throws IOException {
-        StandardServiceRegistry standardServiceRegistry =
-                new StandardServiceRegistryBuilder().configure().build();
-
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Product Name: ");
-            String name = reader.readLine();
-            System.out.println("Product Weight");
-            int weight = Integer.parseInt(reader.readLine());
-            System.out.println("Product Price");
-            double price = Double.parseDouble(reader.readLine());
-            System.out.println("Amount of items");
-            int items = Integer.parseInt(reader.readLine());
-            System.out.println("Select type of products arrived: \nPROTEIN \n CREATIN \n BCAA");
-            String type = reader.readLine();
-            ProductDao productDao = new ProductDao();
-            Products products = new Products(name, weight, price, items,ENUM_TYPE_OF_PRODUCT.valueOf(type));
-            productDao.save(products);
-            System.out.println("Product added to database");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 }
