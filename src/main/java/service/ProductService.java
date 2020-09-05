@@ -84,9 +84,8 @@ public class ProductService {
     }     // working
 
 
-    public void getAllProducts(){
-        ProductDao productDao = new ProductDao();
-        productDao.findAll();
+    public void findByType(ENUM_TYPE_OF_PRODUCT type_of_product){
+        productDao.findByType(type_of_product);
 
     }
 }

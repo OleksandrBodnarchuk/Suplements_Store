@@ -1,5 +1,6 @@
 package dao;
 
+import model.ENUM_TYPE_OF_PRODUCT;
 import model.Products;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -39,12 +40,23 @@ public class ProductDao {
     }
 
     public void findAll() {
-        List<Products> products = (List<Products>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From STORE_PRODUCTS").list();
+        List<Products> products = (List<Products>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From STORE_PRODUCTS").list();
         int iterator = 1;
-        for (Object o : products        ) {
+        for (Object o : products) {
             System.out.println(iterator + ". " + o);
             iterator++;
         }
     }
+
+    public void findByType(ENUM_TYPE_OF_PRODUCT type) {
+        List<Products> products = (List<Products>) HibernateSessionFactoryUtil.getSessionFactory().openSession()
+                .createQuery("From STORE_PRODUCTS WHERE type = '" + type + "'").list();
+        int iterator = 1;
+        for (Object o : products) {
+            System.out.println(iterator + ". " + o);
+            iterator++;
+        }
+    }
+
 }
 
