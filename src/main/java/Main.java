@@ -1,17 +1,12 @@
-
-import dao.CustomerDao;
-import dao.ProductDao;
-import model.Customer;
-import model.Products;
-import service.CustomerService;
-import service.ProductService;
+import menu.InitialMenu;
+import menu.SecondaryMenu;
 
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-       ProductService service = new ProductService();
-       service.findAllProducts();
+    public static void main(String[] args) throws IOException {
+        InitialMenu initialMenu = new InitialMenu();
+        initialMenu.displayMenu();
 
     }
 }
