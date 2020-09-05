@@ -71,14 +71,13 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Products{" +
-                "iD=" + iD +
-                ", ProductName='" + ProductName + '\'' +
-                ", weight=" + weight +
-                ", price=" + price +
-                ", availableItemsInStore=" + availableItemsInStore +
-                ", type=" + type +
-                '}';
+        return "Index for purchase: " + iD +
+                "\t\t\n" + "Name: " + ProductName +
+                "\t\t\n" + "Weight: " + weight +
+                "\t\t\n" + "Price: " + price +
+                "\t\t\n" + "Type: " + type +
+                "\t\t\n" + "Available: " + availableItemsInStore
+                + "\n"+"|------------------------------------|";
     }
 
     public Products() {

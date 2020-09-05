@@ -42,9 +42,8 @@ public class CustomerDao {
     public void findCustomerById(int id) {
         HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
     }
-    public List findAll() { // working
-        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
-        Query query = em.createQuery("from STORE_CUSTOMERS");
-        return query.getResultList();
+    public List<Customer> findAll() {
+        List<Customer> customers = (List<Customer>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From STORE_CUSTOMER").list();
+        return customers;
     }
 }
