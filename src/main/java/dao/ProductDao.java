@@ -1,14 +1,12 @@
 package dao;
 
-import model.Customer;
 import model.Products;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
-import javax.management.Query;
 import javax.persistence.EntityManager;
-import javax.swing.text.html.parser.Entity;
+import javax.persistence.Query;
 import java.util.List;
 
 public class ProductDao {
@@ -45,9 +43,10 @@ public class ProductDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);
     }
 
-//    public List<Products> findAll() {
-//        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
-//        Query query = em.
-//    }
+    public List findAll() { //working
+        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
+        Query query = em.createQuery("from STORE_PRODUCTS");
+        return query.getResultList();
+    }
 }
 

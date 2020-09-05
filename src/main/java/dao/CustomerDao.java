@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.io.IOException;
 import java.util.List;
 
 public class CustomerDao {
@@ -13,7 +16,7 @@ public class CustomerDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
     }
 
-    public void save(Customer customer) {
+    public void save(Customer customer) throws IOException {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.save(customer);
@@ -41,7 +44,9 @@ public class CustomerDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
     }
 
-    public List<Customer> findAll() {
-        return (List<Customer>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from customers").list();
+    public List findAll() { // working
+        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
+        Query query = em.createQuery("from STORE_CUSTOMERS");
+        return query.getResultList();
     }
 }
