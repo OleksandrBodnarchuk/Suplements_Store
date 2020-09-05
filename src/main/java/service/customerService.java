@@ -1,10 +1,9 @@
 package service;
 
 import dao.CustomerDao;
-import dao.ProductDao;
 import model.Customer;
-import model.Products;
 
+import java.io.IOException;
 import java.util.List;
 
 public class customerService {
@@ -15,7 +14,7 @@ public class customerService {
         return customerDao.findById(id);
     }
 
-    public void saveCustomer(Customer customer) {
+    public void saveCustomer(Customer customer) throws IOException {
         customerDao.save(customer);
     }
 
