@@ -3,8 +3,8 @@ package model;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name = "STORE_PRODUCTS")
-
+@Entity
+@Table(name = "store_products")
 public class Products {
     @Id
     @GeneratedValue
@@ -19,7 +19,9 @@ public class Products {
     private int availableItemsInStore;
 
     @Column
+   // @Enumerated(value = EnumType.ORDINAL)
     @Enumerated(value = EnumType.STRING)
+
     private ENUM_TYPE_OF_PRODUCT type;
 
     public Integer getiD() {
