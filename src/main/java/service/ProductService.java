@@ -9,10 +9,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 public class ProductService {
-    private ProductDao productDao = new ProductDao();
+    private final ProductDao productDao = new ProductDao();
 
 
     public Products findProduct(int id) {
@@ -43,7 +42,7 @@ public class ProductService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } // working
 
     public void deleteProduct(Products product) {
         productDao.delete(product);
@@ -53,13 +52,9 @@ public class ProductService {
         productDao.update(product);
     }
 
-    public List findAllProducts() {
-        return productDao.findAll();
-    }
-
-    public Products findProductById(int id) {
-        return productDao.findById(id);
-    }
+    public void findAllProducts() {
+        productDao.findAll();
+    } // working
 
     public void addProduct() throws IOException {
         StandardServiceRegistry standardServiceRegistry =

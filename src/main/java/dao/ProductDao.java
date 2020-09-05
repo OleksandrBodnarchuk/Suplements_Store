@@ -5,8 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.util.List;
 
 public class ProductDao {
@@ -14,6 +12,7 @@ public class ProductDao {
     public Products findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);
     }
+
 
     public void save(Products product) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -39,14 +38,13 @@ public class ProductDao {
         session.close();
     }
 
-    public Products findProductsById(int id) { // working
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);
-    }
-
-    public List findAll() {
-        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
-        Query query = em.createQuery("from STORE_PRODUCTS");
-        return query.getResultList();
+    public void findAll() {
+        List<Products> products = (List<Products>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From STORE_PRODUCTS").list();
+        int iterator = 1;
+        for (Object o : products        ) {
+            System.out.println(iterator + ". " + o);
+            iterator++;
+        }
     }
 }
 
