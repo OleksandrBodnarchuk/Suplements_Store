@@ -29,15 +29,15 @@ public class CustomerDao {
         session.close();
     }
 
-    public void delete(Customer product) {
+    public void delete(Customer customer) { // working
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(product);
+        session.delete(customer);
         transaction.commit();
         session.close();
     }
 
-    public Customer findCustomerById(int id) {
+    public Customer findCustomerById(int id) { // working
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
     }
 

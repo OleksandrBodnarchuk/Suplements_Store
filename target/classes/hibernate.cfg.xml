@@ -35,6 +35,7 @@
 <!--        <mapping class="model.Creatin"/>-->
 <!--        <mapping class="model.BCAA"/>-->
         <mapping class="model.Products"/>
+        <mapping class="model.Customer"/>
 
     </session-factory>
 

@@ -1,17 +1,14 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
-@Entity(name = "PRODUCTS")
+@Entity(name = "STORE_PRODUCTS")
 
 public class Products {
-
+    @Id
     @GeneratedValue
-    private Long iD;
+    private Integer iD;
     @Column
     private String ProductName;
     @Column
@@ -20,15 +17,16 @@ public class Products {
     private double price;
     @Column
     private int availableItemsInStore;
-    @Id
+
     @Column
+    @Enumerated(value = EnumType.STRING)
     private ENUM_TYPE_OF_PRODUCT type;
 
-    public Long getiD() {
+    public Integer getiD() {
         return iD;
     }
 
-    public void setiD(Long iD) {
+    public void setiD(Integer iD) {
         this.iD = iD;
     }
 
@@ -72,8 +70,15 @@ public class Products {
         this.type = type;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Products{" +
+                "iD=" + iD +
+                ", ProductName='" + ProductName + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                ", availableItemsInStore=" + availableItemsInStore +
+                ", type=" + type +
+                '}';
+    }
 }

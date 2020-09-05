@@ -1,10 +1,14 @@
 package dao;
 
+import model.Customer;
 import model.Products;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
+import javax.management.Query;
+import javax.persistence.EntityManager;
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 public class ProductDao {
@@ -29,7 +33,7 @@ public class ProductDao {
         session.close();
     }
 
-    public void delete(Products product) {
+    public void delete(Products product) { // working
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(product);
@@ -37,12 +41,13 @@ public class ProductDao {
         session.close();
     }
 
-    public Products findProductById(int id) {
+    public Products findProductsById(int id) { // working
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);
     }
 
-    public List<Products> findAll() {
-        return (List<Products>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from products").list();
-    }
+//    public List<Products> findAll() {
+//        EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
+//        Query query = em.
+//    }
 }
 

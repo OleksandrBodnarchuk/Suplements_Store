@@ -3,27 +3,27 @@ package model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "CUSTOMERS")
+@Entity(name = "STORE_CUSTOMERS")
 public class Customer {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false)
     private String fullName;
-    @Column
+    @Column(nullable = true)
     private String phone;
     @Column(nullable = false)
     private String email;
     @Column
     private String address;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
