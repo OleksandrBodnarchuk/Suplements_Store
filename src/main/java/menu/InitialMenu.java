@@ -12,14 +12,16 @@ public class InitialMenu {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     public void displayMenu() {
 
-        System.out.println("Please choose: \n\t1: If you want to purchase and item \n\t2: To log in as Employee");
         try {
+            System.out.println("Please choose: \n\t1: If you want to purchase and item \n\t2: To log in as Employee");
             int choice = Integer.parseInt(reader.readLine());
             switch (choice) {
                 case 1:
                     secondaryMenu.displayMenu();
+                    break;
                 case 2:
                     employee.logIn();
+                    break;
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -50,7 +50,7 @@ public class ProductService {
 
     public void updateProduct(Products product) {
         productDao.update(product);
-    }
+    } // fix!!!
 
     public void findAllProducts() {
         productDao.findAll();
