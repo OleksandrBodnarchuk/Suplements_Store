@@ -39,11 +39,9 @@ public class CustomerDao {
         transaction.commit();
         session.close();
     }
-
-    public Customer findCustomerById(int id) { // working
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
+    public void findCustomerById(int id) {
+        HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Customer.class, id);
     }
-
     public List findAll() { // working
         EntityManager em = HibernateSessionFactoryUtil.getSessionFactory().createEntityManager();
         Query query = em.createQuery("from STORE_CUSTOMERS");
