@@ -42,7 +42,6 @@ public class CustomerDao {
     }
 
     public List<Customer> findAll() {
-        List<Customer> customers = (List<Customer>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from customers").list();
-        return customers;
+        return (List<Customer>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from customers").list();
     }
 }

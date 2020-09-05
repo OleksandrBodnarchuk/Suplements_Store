@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity(name = "PRODUCTS")
 
 public class Products {
-    @Id
+
     @GeneratedValue
     private Long iD;
     @Column
@@ -20,6 +20,7 @@ public class Products {
     private double price;
     @Column
     private int availableItemsInStore;
+    @Id
     @Column
     private ENUM_TYPE_OF_PRODUCT type;
 

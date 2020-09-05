@@ -42,8 +42,7 @@ public class ProductDao {
     }
 
     public List<Products> findAll() {
-        List<Products> products = (List<Products>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from products").list();
-        return products;
+        return (List<Products>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("from products").list();
     }
 }
 
