@@ -9,10 +9,13 @@ import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
 public class ProductDao {
+    private Products products = new Products();
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public Products findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Products.class, id);

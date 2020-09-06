@@ -2,6 +2,7 @@ package service;
 
 import dao.CustomerDao;
 import model.Customer;
+import model.Products;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class CustomerService {
+    private Products product = new Products();
     private CustomerDao customerDao = new CustomerDao();
 
 
@@ -37,6 +39,7 @@ public class CustomerService {
     public Customer findCustomerByiD(int id) {
         return customerDao.findById(id);
     }
+
     public void addCustomer() throws IOException {
         StandardServiceRegistry standardServiceRegistry =
                 new StandardServiceRegistryBuilder().configure().build();
@@ -52,7 +55,6 @@ public class CustomerService {
             CustomerDao customerDao = new CustomerDao();
             Customer customer = new Customer(name, email, address);
             customerDao.save(customer);
-            System.out.println("Customer added to database");
 
         } catch (Exception e) {
             e.printStackTrace();
