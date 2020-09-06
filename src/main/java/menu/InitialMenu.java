@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InitialMenu {
-    private final SecondaryMenu secondaryMenu = new SecondaryMenu();
+    private final CustomerMenu customerMenu = new CustomerMenu();
     private final Employee employee = new Employee();
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     public void displayMenu() {
@@ -17,7 +17,7 @@ public class InitialMenu {
             int choice = Integer.parseInt(reader.readLine());
             switch (choice) {
                 case 1:
-                    secondaryMenu.displayMenu();
+                    customerMenu.displayMenu();
                     break;
                 case 2:
                     employee.logIn();

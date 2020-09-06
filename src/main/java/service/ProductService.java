@@ -1,6 +1,8 @@
 package service;
 
 import dao.ProductDao;
+import menu.EmployeeMenu;
+import menu.InitialMenu;
 import model.ENUM_TYPE_OF_PRODUCT;
 import model.Products;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -11,6 +13,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ProductService {
+    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private EmployeeMenu employeeMenu;
+    private InitialMenu initialMenu;
     private final ProductDao productDao = new ProductDao();
 
 
@@ -84,10 +89,25 @@ public class ProductService {
     }     // working
 
 
-    public void findByType(ENUM_TYPE_OF_PRODUCT type_of_product){
+    public void findByType(ENUM_TYPE_OF_PRODUCT type_of_product) {
         productDao.findByType(type_of_product);
-
+     //   continueChoice();
     }
+
+//    private void continueChoice() {
+//        try {
+//            System.out.println("Do you want to continue? (Y/N)");
+//            String quit = reader.readLine();
+//            quit = quit.toUpperCase();
+//            if (quit.equals("Y")) {
+//                employeeMenu.displayMenu();
+//            } else {
+//                initialMenu.displayMenu();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
 
 
