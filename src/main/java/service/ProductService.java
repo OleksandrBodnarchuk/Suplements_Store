@@ -6,9 +6,12 @@ import menu.InitialMenu;
 import model.ENUM_TYPE_OF_PRODUCT;
 import model.Products;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import utils.HibernateSessionFactoryUtil;
 
 import java.io.BufferedReader;
@@ -95,6 +98,31 @@ public class ProductService {
     }
 
     public void updateProduct() throws IOException {
+        System.out.println("Please enter iD of the product you want to update: \n");
+        // int iD2 = Integer.parseInt(reader.readLine());
+        //Integer findProd=Integer.parseInt(productService.findProduct(iD2));
+        final StandardServiceRegistry standardServiceRegistry =
+                new StandardServiceRegistryBuilder().configure().build();
+        try(SessionFactory sessionFactory = new MetadataSources(standardServiceRegistry)
+                .buildMetadata().buildSessionFactory()) {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+            //  int iD2 = Integer.parseInt(reader.readLine());
+
+            String hql = "update STORE_PRODUCTS s set s.availableItemsInStore = 400 where s.id = 19";
+
+            Query query = session.createQuery(hql);
+
+            int result = query.executeUpdate();
+            System.out.println(result+ "Update succesfull");
+            transaction.commit();
+            session.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+     /*
         System.out.println("Please insert iD what you want to update");
         int iD = Integer.parseInt(reader.readLine());
         Products productWeHave = findProduct(iD);
@@ -113,6 +141,8 @@ public class ProductService {
         productDao.delete(productWeHave);
         addProduct(newProduct);
     }
+
+      */
 
     public void findByType(ENUM_TYPE_OF_PRODUCT type_of_product) {
         productDao.findByType(type_of_product);
