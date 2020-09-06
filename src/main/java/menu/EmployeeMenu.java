@@ -33,9 +33,9 @@ public class EmployeeMenu {
                         String quit = reader.readLine();
                         quit = quit.toUpperCase();
                         if (quit.equals("Y")) {
-                            displayMenu();
-                        } else {
                             initialMenu.displayMenu();
+                        } else {
+                            displayMenu();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -68,7 +68,8 @@ public class EmployeeMenu {
                     continueChoice();
                     break;
                 case 6:
-//                    productService.updateProduct(); fix!!!!
+                    productService.updateProduct();
+                    continueChoice();
                     break;
             }
 

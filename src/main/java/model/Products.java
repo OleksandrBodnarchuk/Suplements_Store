@@ -21,6 +21,7 @@ public class Products {
     @Enumerated(value = EnumType.STRING)
     private ENUM_TYPE_OF_PRODUCT type;
 
+
     public Integer getiD() {
         return iD;
     }
@@ -89,5 +90,9 @@ public class Products {
         this.price = price;
         this.availableItemsInStore = availableItemsInStore;
         this.type = type;
+    }
+    public Products(Products products) {
+    }
+    public Products(int iD, Products products) {
     }
 }
